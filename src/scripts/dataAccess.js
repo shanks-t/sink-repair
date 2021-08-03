@@ -1,6 +1,15 @@
 const applicationState = {
+    "plumbers": [    
+    {
+        "id": 1,
+        "name": "maude"
+    },
+    {
+        "id": 2,
+        "name": "merle"
+    }],
     "requests": [],
-    "plumbers": []
+    "completions": []   
 }
 
 const API = "http://localhost:8088"
@@ -16,9 +25,25 @@ export const fetchRequests = () => {
         )
 }
 
-
 export const getRequests = () => {
     return applicationState.requests.map(request => ({...request}))
+}
+
+
+export const fetchPlumbers = () => {
+    debugger
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (serviceRequests) => {
+                // Store the external state in application state
+                applicationState.plumbers = serviceRequests
+            }
+        )
+}
+export const getPlumbers = () => {
+    debugger
+    return applicationState.plumbers.map(plumber => ({...plumber}))
 }
 
 
@@ -49,9 +74,6 @@ export const deleteRequest = (id) => {
         )
 }
 
-export const getPlumbers = () => {
-    return applicationState.plumbers.map(plumber => ({...plumber}))
-}
 
 
 export const saveCompletion = (completePlumberRequest) => {

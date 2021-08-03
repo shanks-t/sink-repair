@@ -1,15 +1,14 @@
 {
   "plumbers": [
     {
-        "id": 1,
-        "name": "maude"
+      "id": 1,
+      "name": "maude"
     },
     {
-        "id": 2,
-        "name": "merle"
+      "id": 2,
+      "name": "merle"
     }
-],
-  "completions": [],
+  ],
   "requests": [
     {
       "description": "bathtub leak",
@@ -17,6 +16,28 @@
       "budget": "300",
       "neededBy": "2021-08-20",
       "id": 2
+    },
+    {
+      "description": "broken toilet",
+      "address": "123 99th Ave",
+      "budget": "100",
+      "neededBy": "2021-08-28",
+      "id": 3
+    },
+    {
+      "description": "my house has exploded in a cataract of sewage",
+      "address": "999 Offal Ave",
+      "budget": "1300",
+      "neededBy": "2021-08-21",
+      "id": 4
+    }
+  ],
+  "completions": [
+    {
+      "requestId": "4",
+      "plumberId": "1",
+      "date": "2021-08-03T17:01:16.316Z",
+      "id": 1
     }
   ]
 }

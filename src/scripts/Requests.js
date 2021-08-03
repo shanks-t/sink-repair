@@ -1,4 +1,4 @@
-import { getRequests, deleteRequest, getPlumbers } from "./dataAccess.js"
+import { getRequests, deleteRequest, getPlumbers, saveCompletion } from "./dataAccess.js"
 
 
 const mainContainer = document.querySelector("#container")
@@ -18,14 +18,12 @@ mainContainer.addEventListener(
             const completePlumberRequest = {
                 requestId: requestId,
                 plumberId: plumberId,
-                date: date,
+                date: new Date(),
             }
             saveCompletion(completePlumberRequest)
         }
     }
 )
-
-
 
 
 
