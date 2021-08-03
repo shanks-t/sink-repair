@@ -1,18 +1,27 @@
 const applicationState = {
-    "plumbers": [    
-    {
-        "id": 1,
-        "name": "maude"
-    },
-    {
-        "id": 2,
-        "name": "merle"
-    }],
+    "plumbers": [],
     "requests": [],
     "completions": []   
 }
 
 const API = "http://localhost:8088"
+
+//plumbers
+export const fetchPlumbers = () => {
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (serviceRequests) => {
+                // Store the external state in application state
+                applicationState.plumbers = serviceRequests
+                console.log(applicationState.plumbers)
+            }
+        )
+}
+
+
+//requests
+const mainContainer = document.querySelector("#container")
 
 export const fetchRequests = () => {
     return fetch(`${API}/requests`)
@@ -25,29 +34,6 @@ export const fetchRequests = () => {
         )
 }
 
-export const getRequests = () => {
-    return applicationState.requests.map(request => ({...request}))
-}
-
-
-export const fetchPlumbers = () => {
-    debugger
-    return fetch(`${API}/plumbers`)
-        .then(response => response.json())
-        .then(
-            (serviceRequests) => {
-                // Store the external state in application state
-                applicationState.plumbers = serviceRequests
-            }
-        )
-}
-export const getPlumbers = () => {
-    debugger
-    return applicationState.plumbers.map(plumber => ({...plumber}))
-}
-
-
-const mainContainer = document.querySelector("#container")
 
 export const sendRequest = (userServiceRequest) => {
     const fetchOptions = {
@@ -75,7 +61,7 @@ export const deleteRequest = (id) => {
 }
 
 
-
+//completions
 export const saveCompletion = (completePlumberRequest) => {
     const fetchOptions = {
         method: "POST",
@@ -102,3 +88,16 @@ export const fetchCompletions = () => {
             }
         )
 }
+
+
+//get arrays of objects from database
+export const getRequests = () => {
+    return applicationState.requests.map(request => ({...request}))
+}
+
+export const getPlumbers = () => {
+    debugger
+    return applicationState.plumbers.map(plumber => ({...plumber}))
+}
+
+
