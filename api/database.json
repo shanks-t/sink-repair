@@ -1,5 +1,14 @@
 {
-  "plumbers": [],
+  "plumbers": [
+    {
+        "id": 1,
+        "name": "maude"
+    },
+    {
+        "id": 2,
+        "name": "merle"
+    }
+],
   "completions": [],
   "requests": [
     {
