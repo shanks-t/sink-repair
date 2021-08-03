@@ -15,6 +15,35 @@ export const fetchRequests = () => {
         )
 }
 
+
 export const getRequests = () => {
     return applicationState.requests.map(request => ({...request}))
+}
+
+
+const mainContainer = document.querySelector("#container")
+
+export const sendRequest = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+        return fetch(`${API}/requests`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        }
+    )
+}
+
+export const deleteRequest = (id) => {
+    return fetch(`${API}/requests/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
 }
