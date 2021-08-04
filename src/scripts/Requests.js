@@ -49,8 +49,7 @@ export const Requests = () => {
                             ).join("")
                         }
                     </select>
-                </li>`
-    
+                </li>`   
             }
         )
     html += requestsArray.join("")
