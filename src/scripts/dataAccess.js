@@ -96,7 +96,6 @@ export const getRequests = () => {
 }
 
 export const getPlumbers = () => {
-    debugger
     return applicationState.plumbers.map(plumber => ({...plumber}))
 }
 

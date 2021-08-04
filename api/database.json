@@ -30,6 +30,13 @@
       "budget": "1300",
       "neededBy": "2021-08-21",
       "id": 4
+    },
+    {
+      "description": "there's seamonkeys in my tap water",
+      "address": "678 Jannsen Ln",
+      "budget": "250",
+      "neededBy": "2021-08-22",
+      "id": 5
     }
   ],
   "completions": [
@@ -38,6 +45,12 @@
       "plumberId": "1",
       "date": "2021-08-03T17:01:16.316Z",
       "id": 1
+    },
+    {
+      "requestId": "2",
+      "plumberId": "2",
+      "date": "2021-08-04T14:13:29.644Z",
+      "id": 2
     }
   ]
 }

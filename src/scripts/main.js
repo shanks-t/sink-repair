@@ -9,7 +9,7 @@ const render = () => {
     fetchRequests()
     .then(
         () => {
-            fetchPlumbers()
+            return fetchPlumbers()
         }
     )
     .then(
