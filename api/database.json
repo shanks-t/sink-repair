@@ -11,46 +11,13 @@
   ],
   "requests": [
     {
-      "description": "bathtub leak",
-      "address": "123 21st Ave",
-      "budget": "300",
-      "neededBy": "2021-08-20",
-      "id": 2
-    },
-    {
-      "description": "broken toilet",
-      "address": "123 99th Ave",
-      "budget": "100",
-      "neededBy": "2021-08-28",
-      "id": 3
-    },
-    {
-      "description": "my house has exploded in a cataract of sewage",
-      "address": "999 Offal Ave",
-      "budget": "1300",
-      "neededBy": "2021-08-21",
-      "id": 4
-    },
-    {
-      "description": "there's seamonkeys in my tap water",
-      "address": "678 Jannsen Ln",
-      "budget": "250",
-      "neededBy": "2021-08-22",
-      "id": 5
-    }
-  ],
-  "completions": [
-    {
-      "requestId": "4",
-      "plumberId": "1",
-      "date": "2021-08-03T17:01:16.316Z",
+      "description": "my house is a fountain of ordure ",
+      "address": "123 Offal ln",
+      "budget": "350",
+      "neededBy": "2021-08-26",
+      "isComplete": false,
+      "plumberId": "",
       "id": 1
-    },
-    {
-      "requestId": "2",
-      "plumberId": "2",
-      "date": "2021-08-04T14:13:29.644Z",
-      "id": 2
     }
   ]
 }

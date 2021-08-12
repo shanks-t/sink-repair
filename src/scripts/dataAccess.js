@@ -1,7 +1,6 @@
-const applicationState = {
+export const applicationState = {
     "plumbers": [],
-    "requests": [],
-    "completions": []   
+    "requests": [], 
 }
 
 const API = "http://localhost:8088"
@@ -14,7 +13,6 @@ export const fetchPlumbers = () => {
             (serviceRequests) => {
                 // Store the external state in application state
                 applicationState.plumbers = serviceRequests
-                console.log(applicationState.plumbers)
             }
         )
 }
@@ -62,15 +60,15 @@ export const deleteRequest = (id) => {
 
 
 //completions
-export const saveCompletion = (completePlumberRequest) => {
+export const saveCompletion = (completePlumberRequest, Id) => {
     const fetchOptions = {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(completePlumberRequest)
     }
-        return fetch(`${API}/completions`, fetchOptions)
+        return fetch(`${API}/requests/${Id}`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -78,16 +76,6 @@ export const saveCompletion = (completePlumberRequest) => {
     )
 }
 
-export const fetchCompletions = () => {
-    return fetch(`${API}/completions`)
-        .then(response => response.json())
-        .then(
-            (serviceRequests) => {
-                // Store the external state in application state
-                applicationState.requests = serviceRequests
-            }
-        )
-}
 
 
 //get arrays of objects from database

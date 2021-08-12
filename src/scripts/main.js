@@ -14,6 +14,11 @@ const render = () => {
     )
     .then(
         () => {
+            return fetchPlumbers()
+        }
+    )
+    .then(
+        () => {
             mainContainer.innerHTML = SinkRepair()
         }
     )  
