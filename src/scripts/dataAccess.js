@@ -3,7 +3,8 @@ export const applicationState = {
     "requests": [], 
 }
 
-const API = "http://localhost:8088"
+const API = "http://eb_react_app.us-east-1.elasticbeanstalk.com/api"
+
 
 //plumbers
 export const fetchPlumbers = () => {
