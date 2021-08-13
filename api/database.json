@@ -24,7 +24,7 @@
       "address": "123 poop ave",
       "budget": "400",
       "neededBy": "2021-08-18",
-      "isComplete": false,
+      "isComplete": true,
       "plumberId": "",
       "id": 4
     },

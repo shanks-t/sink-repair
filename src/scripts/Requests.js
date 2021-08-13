@@ -53,7 +53,8 @@ export const Requests = () => {
     let html = "<ul>"
     const requestsArray = requests.map(
         (request) => {
-            return `
+            if(request.isComplete === false) {
+                return `
                 <li>
                     ${request.description}
                     <button class="request__delete"
@@ -71,7 +72,18 @@ export const Requests = () => {
                         }
                     </select>
                 </li>`   
+                } else {
+                    return `     
+                    <li class="completed">
+                        ${request.description}
+                        <button class="request__delete"
+                            id="request--${request.id}">
+                        Delete
+                        </button>
+                    </li>`
+                }
             }
+      
         )
     html += requestsArray.join("")
     html +=  "</ul>"

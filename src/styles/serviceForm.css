@@ -55,3 +55,7 @@ li {
   margin-top: 8px;
   border-radius: 10px;
 }
+
+.completed {
+  background-color: pink;
+}
