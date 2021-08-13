@@ -1,8 +1,26 @@
-const applicationState = {
-    "requests": []
+export const applicationState = {
+    "plumbers": [],
+    "requests": [], 
 }
 
-const API = "http://localhost:8088"
+const API = "http://eb_react_app.us-east-1.elasticbeanstalk.com/api"
+
+
+//plumbers
+export const fetchPlumbers = () => {
+    return fetch(`${API}/plumbers`)
+        .then(response => response.json())
+        .then(
+            (serviceRequests) => {
+                // Store the external state in application state
+                applicationState.plumbers = serviceRequests
+            }
+        )
+}
+
+
+//requests
+const mainContainer = document.querySelector("#container")
 
 export const fetchRequests = () => {
     return fetch(`${API}/requests`)
@@ -15,13 +33,6 @@ export const fetchRequests = () => {
         )
 }
 
-
-export const getRequests = () => {
-    return applicationState.requests.map(request => ({...request}))
-}
-
-
-const mainContainer = document.querySelector("#container")
 
 export const sendRequest = (userServiceRequest) => {
     const fetchOptions = {
@@ -47,3 +58,38 @@ export const deleteRequest = (id) => {
             }
         )
 }
+
+
+//completions
+export const saveCompletion = (completePlumberRequest, Id) => {
+    const fetchOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(completePlumberRequest)
+    }
+        return fetch(`${API}/requests/${Id}`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        }
+    )
+}
+
+
+
+//get arrays of objects from database
+
+
+export const getRequests = () => {
+    const sorted = applicationState.requests.sort((a,b) => (a.isComplete > b.isComplete) ? 1 : -1)
+    console.log("sorted:", sorted)
+    return sorted.map(request => ({...request}))
+}
+
+export const getPlumbers = () => {
+    return applicationState.plumbers.map(plumber => ({...plumber}))
+}
+
+
