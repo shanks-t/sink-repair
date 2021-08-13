@@ -13,22 +13,18 @@ mainContainer.addEventListener("click", click => {
 
 export const updateRequest = (requestId) => {
     const requests = applicationState.requests
-    debugger
     let completeRequest = {}
     for (const request of requests) {
         if (requestId === request.id) {
             completeRequest = request
         }
     }
-    return completeRequest
+    return changeObject(completeRequest)
 }
 
-const putObject = () => {
-    let completeRequest = updateRequest(putId)
-    for (const key of Object.entries(completeRequest)) {
-        key.isComplete = true
-    }
-    return completeRequest
+export const changeObject = (obj) => {
+    obj.isComplete = true
+    return obj
 }
   
 
@@ -42,9 +38,9 @@ mainContainer.addEventListener(
             //const requestId = updateRequest(requestId)
             const putId = parseInt(requestId)
             //const isComplete = true
-            const completeRequest = updateRequest(putId)
-            const putObject = putObject(completeRequest)
-            //saveCompletion(completeRequest, putId)
+            const putObj = updateRequest(putId)
+            
+            saveCompletion(putObj, putId)
         }
         
     } 

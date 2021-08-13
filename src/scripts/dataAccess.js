@@ -79,8 +79,14 @@ export const saveCompletion = (completePlumberRequest, Id) => {
 
 
 //get arrays of objects from database
+const sort = (x, y) => { 
+    return (x.isComplete > y.isComplete) ? 0 : x? -1 : 1
+}
+
 export const getRequests = () => {
-    return applicationState.requests.map(request => ({...request}))
+    const sorted = applicationState.requests.sort((a,b) => (a.isComplete > b.isComplete) ? -1 : 1)
+    console.log("sorted:", sorted)
+    return sorted.map(request => ({...request}))
 }
 
 export const getPlumbers = () => {
